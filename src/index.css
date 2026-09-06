@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #3a3c40;
+    --bg-radial: radial-gradient(farthest-corner at center top, rgba(150, 156, 166, 1) 0%, rgba(58, 60, 64, 1) 85%);
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --text-white: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #444444;
+  }
+}
+
+.font-serif-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+/* Authentic Radial Gradient matching nota.uprock.pro */
+.hero-radial-bg {
+  background: radial-gradient(farthest-corner at 50% 0%, rgba(150, 156, 166, 1) 0%, rgba(58, 60, 64, 1) 85%) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Nota Navbar ── */
+.nota-nav-link {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15vw;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 3px;
+  white-space: nowrap;
+  line-height: 1;
+  transition: color 300ms ease;
+}
+
+.nota-nav-link.light-mode {
+  color: #000000 !important;
+}
+
+.nota-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #ffffff;
+  transition: width 300ms ease-in-out, background-color 300ms ease;
+}
+
+.nota-nav-link.light-mode::after {
+  background-color: #000000 !important;
+}
+
+.nota-nav-link:hover::after {
+  width: 100%;
+}
+
+.nota-order-outer:hover .nota-order-inner {
+  background-color: rgb(255, 34, 0) !important;
+}
+
+.nota-order-outer {
+  transition: background-color 300ms ease, border-color 300ms ease !important;
+}
+.nota-order-outer.light-mode {
+  background-color: #000000 !important;
+}
+.nota-order-emblem {
+  transition: color 300ms ease !important;
+}
+.nota-order-emblem.light-mode {
+  color: #ffffff !important;
+}
+.nota-order-inner {
+  transition: background-color 300ms ease !important;
+}
+.nota-order-inner.light-mode {
+  background-color: #ffffff !important;
+}
+.nota-order-text-primary {
+  transition: color 300ms ease !important;
+}
+.nota-order-text-primary.light-mode {
+  color: #000000 !important;
+}
+.nota-order-text-secondary {
+  transition: color 300ms ease !important;
+}
+.nota-order-text-secondary.light-mode {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+.nota-order-dot {
+  transition: background-color 300ms ease !important;
+}
+.nota-order-dot.light-mode {
+  background-color: #000000 !important;
+}
+
+.nota-order-outer:hover .nota-order-text-primary,
+.nota-order-outer:hover .nota-order-text-secondary {
+  color: #ffffff !important;
+}
+.nota-order-outer:hover .nota-order-dot {
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 991px) {
+  .nota-desktop-nav {
+    display: none !important;
+  }
+
+  .nota-burger {
+    display: flex !important;
+  }
+
+  .nota-order-outer {
+    display: none !important;
+  }
+}
+
+.nota-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.97);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20vw 6vw 6vw;
+}
+
+.nota-mobile-overlay a {
+  font-family: 'Inter', sans-serif;
+  font-size: 7vw;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 4vw;
+  display: block;
+}
+
+.nota-mobile-cta {
+  width: 100%;
+  background: rgb(255, 34, 0);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  padding: 4vw 0;
+  border-radius: 2vw;
+  border: none;
+  cursor: pointer;
+  margin-top: 5vw;
+}
